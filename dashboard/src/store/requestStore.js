@@ -12,7 +12,7 @@ const useRequestStore = create((set) => ({
   fetchRequests: async () => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch('http://localhost:3000/api/requests');
+      const response = await fetch('https://w1-wttp-assistant.onrender.com/api/requests');
       if (!response.ok) {
         throw new Error('Falha ao buscar solicitações');
       }
@@ -26,7 +26,7 @@ const useRequestStore = create((set) => ({
   fetchAllRequests: async () => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch('http://localhost:3000/api/requests/all');
+      const response = await fetch('https://w1-wttp-assistant.onrender.com/api/requests/all');
       if (!response.ok) {
         throw new Error('Falha ao buscar todas as solicitações');
       }
@@ -40,7 +40,7 @@ const useRequestStore = create((set) => ({
   resolveRequest: async (id, resolvedBy = 'operador') => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch(`http://localhost:3000/api/requests/resolve/${id}`, {
+      const response = await fetch(`https://w1-wttp-assistant.onrender.com/api/requests/resolve/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const useRequestStore = create((set) => ({
   sendMessage: async (to, message) => {
     set({ isLoading: true, error: null });
     try {
-      const response = await fetch('http://localhost:3000/api/send-message', {
+      const response = await fetch('https://w1-wttp-assistant.onrender.com/api/send-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
